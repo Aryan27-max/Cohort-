@@ -1,0 +1,65 @@
+some bash commands - 
+
+(We'll be using WSL (Windows Subsystem for linux))
+
+1. pwd (print working diretory) - prints the diretory we currently are on 
+
+2. cd (change diretory) - changes from one diretory to another 
+   (use {  cd ..  } to go to the previous diretory)
+   (use {  cd ../..  } to go back 2 diretory)
+
+3.  ls (lists) - displays the content of the diretory
+
+4. mkdir (make diretory) - makes a new diretory
+
+5. touch - to make a file inisde a diretory (eg. touch index.txt wil make a file inside a diretory)
+
+6. cat - prints the content of a file (example. cat index.txt will  display the ocntent of index.txt)
+
+7. vi (vim command) - vim stands for Vi IMproved.
+                      It’s a command-line text editor used to create or edit files in Linux/Unix environments
+    HOW TO OPEN FILE IN VIM 
+
+    vim fileName 
+
+    eg. vim a.txt (if the file exists it opens the file if not it makes one)
+
+Vim has three main modes:
+
+MODE	         USE
+Normal Mode	     For navigation & commands (default mode)
+Insert Mode	     For typing text (like a regular editor)
+Command Mode	 For saving, quitting, searching (starts with :)
+
+Enter Insert Mode (to start typing):
+Press i → Now you can type text.
+
+Exit Insert Mode:
+Press Esc
+
+vim esc commands - 
+
+:w → Save (write)
+
+:q → Quit
+
+:wq → Save and quit
+
+:q! → Quit without saving
+
+(Type ( : ) in normal mode, then the command, then press Enter)
+
+8. mv (move) - moves files from one place to another  {eg.  mv a.txt new-folder (moves a.txt to new folder) }
+
+9. cp (copy) - copies files from one position to another {eg. cp a.txt new-folder  (copies a.txt to new-follder) }
+                                                        { to copy a folder user  cp -r test11 test22 (test11 gets copied into test22)}
+                                                        here r stands for recursive 
+
+
+10. node commands- 
+    
+    1. node - this cmd is use to code node files directly use crtl C to exit
+
+    2. npm (node package manager) - helps u intall js libraries (cmd -> npm install (name of library))
+    
+     
