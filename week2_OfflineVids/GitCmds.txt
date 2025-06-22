@@ -1,0 +1,39 @@
+git remote -v  ------->  to check the origin of the repo 
+
+git remote set-url origin (link to repo) -----------> sets new origin to the file 
+
+to commit to and existing linked repo ------------>
+
+        git add .
+
+        git commit -m "write the commit"
+
+        git push origin main
+
+to make a new orgin and push a fresh commit ----------->
+
+🪜 STEP 1: Open Terminal in That Folder
+
+        track to the given folder
+
+🪜 STEP 2: Initialize Git 
+
+        git init
+
+🪜 STEP 3: Add All Files & Folders
+
+        git add .
+
+🪜 STEP 4: Commit the Changes
+
+        git commit -m "write a commit"
+
+🪜 STEP 5: Connect to Your GitHub Repo
+
+        git remote add origin https://github.com/yout-user-name/repository-name.git
+
+🪜 STEP 6: Push to GitHub
+
+        git branch -M main
+        
+        git push -u origin main
