@@ -10,3 +10,8 @@ console.log(map.get('name'));
 
 const NewName = map.get('name');
 console.log(NewName);
+
+//expected output 
+// (1-31)  <---- based on today's date 
+// Aryan   <-- from map.get('name')
+// Aryan   <-- from map.get('name') again (assigned to NewName)
