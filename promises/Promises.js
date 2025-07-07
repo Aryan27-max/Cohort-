@@ -22,3 +22,5 @@ function callback(){
     console.log("5 seconds have passed");
 }
 p.then(callback);
+
+
