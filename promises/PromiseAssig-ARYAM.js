@@ -28,6 +28,6 @@ async function cleanFile(fileName){ // defining an async function called cleanFi
 }
 
 // usage 
-cleanFile("promises/a.txt").then ((data) => {
-    console.log("final trimmed content: ",data);// function to return the contents of the file 
+cleanFile("promises/a.txt").then ((data) => {     // function to return the contents of the file 
+    console.log("final trimmed content: ",data);
 });

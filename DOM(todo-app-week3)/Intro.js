@@ -31,8 +31,8 @@
 // 1. quesrySelector
 // 2. querySeclectorAll
 // 3. getElementById
-// 4. getElementByClassName
-// 5. getElementsByClassName
+// 4. getElementByClassName .
+// 5. getElementsByClassName.
 
 
 

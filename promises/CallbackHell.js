@@ -19,17 +19,17 @@
 // alternate method to evade callback hll but always go with PROMISES 
 
 function step3Done(){
-    console.log("hello there");
+    console.log("hora hai !!");
 }
 
 function step2Done(){
-    console.log("hello");
-    setTimeout(step3Done,5000);
+    console.log("crazy");
+    setTimeout(step3Done,1000);
 }
 
 function step1Done(){
-    console.log("hi");
-    setTimeout(step2Done,3000);
+    console.log("Bro");
+    setTimeout(step2Done,1000);
 }
 setTimeout(step1Done,1000)
 
