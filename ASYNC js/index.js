@@ -6,4 +6,4 @@ function print(err, data){
 
 fs.readFile("a.txt","utf-8",print);
 fs.readFile("b.txt","utf-8",print);
-console.log("i'm done!");
+console.log("hello world");
