@@ -1,3 +1,4 @@
+# 🚀 Harkirat Singh's Cohort 3.0 – My Journey
 
 Welcome!  
 This repository contains all my work, assignments, and hands-on projects from **Harkirat Singh's Cohort 3.0 (2024–2025)** — a comprehensive full-stack web development program covering:
