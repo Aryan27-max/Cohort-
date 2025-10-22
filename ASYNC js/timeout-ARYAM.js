@@ -1,9 +1,9 @@
 function timeout(){
-    console.log("click this button");
+    console.log("aryan is inside the lounge");
 }
 
 console.log("hi there !!");
-setTimeout(timeout, 12000);
+setTimeout(timeout, 6000);
 
 console.log("welcome to lounge !!");
 

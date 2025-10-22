@@ -9,11 +9,11 @@ function setTimeoutPromisified(ms){
 
 async function solve (){
     await setTimeoutPromisified(1000);
-    console.log("hi !!");
+    console.log("1 sec has passed");
     await setTimeoutPromisified(3000);
-    console.log("hello !!");
+    console.log("3 seconds have passed");
     await setTimeoutPromisified(5000);
-    console.log("hello there !!");
+    console.log("5 seconds have passed");
 }
 
 solve();

@@ -2,23 +2,30 @@
 
 // example of promisified version of setTimeout 
 
-// function setTimeoutPromisified(ms){
-//     return new Promise (resolve => setTimeout(resolve,ms));
+function setTimeoutPromisified(ms){
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function Aryan(){
+  console.log("Hi am aryan");
+}
+
+function charvee(){8
+  console.log("Hi am charvee");
+}
+
+setTimeoutPromisified(5000).then(Aryan);
+
+setTimeoutPromisified(7000).then(charvee);
+
+
+// function doAsync(resolve){
+//     setTimeout(resolve,5000);
 // }
+
+// const p = new Promise(doAsync);
+
 // function callback(){
-//     console.log("some time has passed");
+//     console.log("5 seconds have passed");
 // }
-
-// setTimeoutPromisified(5000).then(callback)
-
-
-function doAsync(resolve){
-    setTimeout(resolve,5000);
-}
-
-const p = new Promise(doAsync);
-
-function callback(){
-    console.log("5 seconds have passed");
-}
-p.then(callback);
+// p.then(callback);

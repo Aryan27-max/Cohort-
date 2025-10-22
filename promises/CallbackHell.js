@@ -18,9 +18,9 @@
 
 // alternate method to evade callback hll but always go with PROMISES 
 
-function step3Done(){
-    console.log("hora hai !!");
-}
+// function step3Done(){
+//     console.log("hora hai !!");
+// }
 
 function step2Done(){
     console.log("crazy");
