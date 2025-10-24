@@ -10,13 +10,13 @@ function Aryan(){
   console.log("Hi am aryan");
 }
 
-function charvee(){8
+function Boink(){8
   console.log("Hi am charvee");
 }
 
 setTimeoutPromisified(5000).then(Aryan);
 
-setTimeoutPromisified(7000).then(charvee);
+setTimeoutPromisified(7000).then(Boink);
 
 
 // function doAsync(resolve){
