@@ -1,1 +1,7 @@
-Welcome to 
+Welcome to COMOEX DOM - 
+
+we just need to worry about STATES AND COMPONENETS
+
+STORYTIME - Some time back some smart fols at facebook started thinked whu do we hat o write such complex html
+            thus react came in to picture with its seld udating dom, whic means u can just change the sate of the 
+            pre-existing code and the framework with auto update it. 
