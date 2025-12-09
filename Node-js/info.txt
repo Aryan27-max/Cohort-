@@ -24,6 +24,8 @@ Safari - JavaScriptCore
 
 
 
+USE THE NPM REGISTERY in the browser to look or deploy 
+your own code libraries
 
 
 
