@@ -21,3 +21,20 @@ notion image
  
 Mozilla has their own JS engine - SpiderMonkey
 Safari - JavaScriptCore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
