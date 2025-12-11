@@ -41,8 +41,7 @@ Usage in package.json
 “chalk”: “5.3.0” - Will install the exact version
 "chalk": "latest" - Will install the latest versionunderstanding versions - 
 
-ex- "express": "^5.2.1" ----> MAJOR.MINOR.PATCH,,,,
-
+ex- "express": "^5.2.1" ----> MAJOR.MINOR.PATCH
 
 
 
