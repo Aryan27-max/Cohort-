@@ -17,8 +17,6 @@ The V8 engine is an open-source JavaScript engine developed by Google.
 It is used to execute JavaScript code in various environments,
 most notably in the Google Chrome web browser.
  
-notion image
- 
 Mozilla has their own JS engine - SpiderMonkey
 Safari - JavaScriptCore
 
@@ -28,9 +26,22 @@ USE THE NPM REGISTERY in the browser to look or deploy
 your own code libraries
 
 
+Semantic Versioning Format- 
 
+Every external package is updated incrementally. A specific version looks something like follows - 
 
+"chalk": "^5.3.0"
 
+The format is as follows - MAJOR.MINOR.PATCH
+MAJOR -  Major version changes indicate significant updates or breaking changes. 
+MINOR -  Minor version changes signify the addition of new features or improvements in a backward-compatible manner.
+PATCH - Patch version changes include backward-compatible bug fixes or minor improvements that address issues without adding new features or causing breaking changes.
+Usage in package.json
+“chalk”: “^5.3.0” - npm will install any version that is compatible with 5.3.0 but less than 6.0.0. This includes versions like 5.3.1, 5.4.0, 5.5.0, etc.
+“chalk”: “5.3.0” - Will install the exact version
+"chalk": "latest" - Will install the latest versionunderstanding versions - 
+
+ex- "express": "^5.2.1" ----> MAJOR.MINOR.PATCH
 
 
 
