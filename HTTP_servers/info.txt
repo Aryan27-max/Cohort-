@@ -1,4 +1,5 @@
 HTTP - Hyper text transfer protocol 
+JSON - JavaScript Object Notation 
 
 4 main HTTP request methods are - 
 
