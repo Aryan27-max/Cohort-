@@ -1,3 +1,17 @@
 HTTP - Hyper text transfer protocol 
 
-4 main HTTP request methods are 
+4 main HTTP request methods are - 
+
+1. GET - 
+   purpose - fetch data from server 
+   Does not chnage the data 
+
+2. POST -
+   purpose - send data to server 
+   used to create new data 
+
+3. PUT -
+   purpose - update existing data (entire resource)
+
+4. DELETE - 
+   purpose - remove data from servers 
