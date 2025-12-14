@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+app.use(express.json());
+
 const users = [
   {
     name: "john",
@@ -34,6 +36,15 @@ app.get("/", function (req, res) {
   });
 });
 
+app.post("/", function(req,res){
+    const ishealthy = req.body.ishealthy;
+    users[0].kidneys.push({
+        healthy: ishealthy
+    })
+    res.json({
+        msg: "Done!"
+    })
+})
 app.listen(3000, () => {
     console.log("server running at port 3000");
 })
