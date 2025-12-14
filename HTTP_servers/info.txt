@@ -15,3 +15,73 @@ HTTP - Hyper text transfer protocol
 
 4. DELETE - 
    purpose - remove data from servers 
+
+
+
+HTTP status codes - 
+
+🔵 1xx – Informational
+
+👉 Request received, still processing (rarely used)
+
+-> 100 Continue – Client can continue sending request
+
+📌 Mostly internal, you usually don’t use these directly.
+
+🟢 2xx – Success
+
+👉 Request was successful
+
+-> 200 OK – Request succeeded (most common)
+
+-> 201 Created – Resource created successfully
+
+-> 204 No Content – Success but no response body
+
+🟡 3xx – Redirection
+
+👉 Client must take another action
+
+-> 301 Moved Permanently – URL changed forever
+
+-> 302 Found – Temporary redirect
+
+-> 304 Not Modified – Cached version is still valid
+
+📌 Mostly used in browser navigation and caching.
+
+🔴 4xx – Client Errors
+
+👉 Problem from client side
+
+-> 400 Bad Request – Invalid request / wrong input
+
+-> 401 Unauthorized – Not logged in
+
+-> 403 Forbidden – Logged in but no permission
+
+-> 404 Not Found – Resource doesn’t exist
+
+-> 429 Too Many Requests – Rate limit exceeded
+
+🔥 5xx – Server Errors
+
+👉 Problem from server side
+
+-> 500 Internal Server Error – Generic server crash
+
+-> 502 Bad Gateway – Invalid response from another server
+
+-> 503 Service Unavailable – Server down or overloaded
+
+-> 504 Gateway Timeout – Server took too long
+
+🧠 Most Important Ones to Remember (Exam + Real Life)
+Code        Meaning
+200	        OK
+201	        Created
+400	        Bad Request
+401	        Unauthorized
+403	        Forbidden
+404	        Not Found
+500	        Server Error
