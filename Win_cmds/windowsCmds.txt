@@ -1,0 +1,22 @@
+-> Switch between open apps -
+
+Alt + Tab
+
+-> Switch backward -
+
+Alt + Shift + Tab
+
+-> Jump between same app windows -
+
+Alt + Esc (capslog) 
+
+-> Task View (all windows)
+
+Win + Tab
+
+-> shortcut to refresh window - 
+
+Ctrl + R
+
+
+

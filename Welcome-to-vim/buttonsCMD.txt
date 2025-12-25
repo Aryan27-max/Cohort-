@@ -1,0 +1,25 @@
+hi! from vim - 
+
+here are the vim navigation cmds - 
+
+i -> to enter insert mode 
+
+Esc -> to get out of insert mode 
+
+HJKL navigation - 
+ H - to go left 
+ J - to go down 
+ K - to go up 
+ L - to go right 
+
+iIaA edditing a line - 
+i - left insert 
+I - front left insert 
+a - right insert 
+A - end left insert 
+
+xr making changes while in cmd - 
+x - to delte while in cmd 
+r - replcae a soecific charecter while in cmd 
+
+ 
