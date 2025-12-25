@@ -16,7 +16,7 @@ Win + Tab
 
 -> shortcut to refresh window - 
 
-Ctrl + R
+Ctrl + R.
 
 
 
