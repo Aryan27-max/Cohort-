@@ -76,3 +76,12 @@
 65. awk -F "," '{print $1, $2}' filename
 66. awk '{count[$2]++} END {print count["ERROR]}' filename ---Count the occurance of ERROR in second column of the file.
 67. awk '{ if ($1 > 1598863888 ) {print $0} }' log.txt -------view the rows after 1598863888 in first column.
+
+
+
+iuyd76d6df 
+iug g87
+iui 
+biu Bo hiu
+oh 9h
+u hhh
