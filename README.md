@@ -32,4 +32,12 @@ Each folder represents code from a session or topic, with:
 Follow along if you’re on a similar path.  
 Let’s grow together as developers!
 
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
 **Made with ❤️ by [Aryan Gupta](https://github.com/Aryan27-max)**
