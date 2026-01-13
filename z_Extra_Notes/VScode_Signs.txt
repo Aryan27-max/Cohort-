@@ -17,3 +17,6 @@
 | `??`   | **Untracked (CLI)** | Shown in `git status` for files Git doesn't know about yet (same as `U` in VS Code) |
 
 | `!`    | **Ignored**         | File is ignored via `.gitignore`                                                    |
+
+
+hi there 
