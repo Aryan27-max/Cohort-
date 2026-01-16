@@ -1,4 +1,4 @@
-git remote -v  ------->  to check the origin of the repo 
+qgit remote -v  ------->  to check the origin of the repo 
 
 git remote set-url origin (link to repo) -----------> sets new origin to the file 
 
