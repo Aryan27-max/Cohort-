@@ -46,7 +46,7 @@ HTTP status codes -
 -> 301 Moved Permanently – URL changed forever
 
 -> 302 Found – Temporary redirect
-
+q
 -> 304 Not Modified – Cached version is still valid
 
 📌 Mostly used in browser navigation and caching.
