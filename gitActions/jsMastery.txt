@@ -48,3 +48,21 @@ stack and push git cmds -
      git c "Commit 3"
      git push
 
+
+
+-> to check commit logs - 
+   
+   git log 
+
+-> to retrive to the prev commit of the prev version use 
+   1st check the commit logs and find the commit ID -> 
+
+   commit 4279ab98bc47027e42c054722af180c8909f3d93
+   Author: Aryan27-max <gupta.raj.aryan.2005@gmail.com>
+   Date:   Wed Jan 7 16:47:16 2026 +0530
+
+   intro to licenses
+
+then copy the commit ID and then use -> 
+
+git checkout <commit ID>
