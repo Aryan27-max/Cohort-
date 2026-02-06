@@ -1,114 +1,124 @@
-git remote -v  ------->  to check the origin of the repo 
+📘 GIT COMMANDS — WELL ORGANISED NOTES
+🔗 REMOTE REPOSITORY (ORIGIN)
+✅ Check connected repo
+git remote -v
 
-git remote set-url origin (link to repo) -----------> sets new origin to the file 
+🔁 Change existing origin
+git remote set-url origin <repo-link>
 
-to commit to and existing linked repo ------------>
+📤 COMMIT & PUSH (EXISTING REPO)
+git add .
+git commit -m "your commit message"
+git push origin main
 
-        git add .
+🆕 CREATE NEW REPO & PUSH CODE
+🪜 Step-by-step
+cd your-folder
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/username/repo.git
+git branch -M main
+git push -u origin main
 
-        git commit -m "write the commit"
+⚡ QUICK COMMIT SHORTCUT (ALIAS)
+Create shortcut once:
+git config --global alias.c "commit -am"
 
-        git push origin main
+Use:
+git c "Commit 1"
+git c "Commit 2"
+git push
 
-to make a new orgin and push a fresh commit ----------->
+📜 VIEW COMMIT HISTORY
+git log
 
-🪜 STEP 1: Open Terminal in That Folder
-
-        track to the given folder
-
-🪜 STEP 2: Initialize Git 
-
-        git init
-
-🪜 STEP 3: Add All Files & Folders
-
-        git add .
-
-🪜 STEP 4: Commit the Changes
-
-        git commit -m "write a commit"
-
-🪜 STEP 5: Connect to Your GitHub Repo
-
-        git remote add origin https://github.com/your-user-name/repository-name.git
-
-🪜 STEP 6: Push to GitHub (first acess main ranch then add the file to it)
-
-        git branch -M main
-        
-        git push -u origin main
+⏪ GO BACK TO OLD COMMIT (TEMP VIEW)
+git checkout <commit-hash>
 
 
-stack and push git cmds - 
+👉 To return:
 
-     git config --global alias.c "commit -am"
+git checkout main
 
-     git c "Commit 1"
-     git c "Commit 2"
-     git c "Commit 3"
-     git push
+🌿 BRANCH COMMANDS
+Switch branch:
+git checkout branch-name
 
+Force switch (if stuck):
+git checkout -f branch-name
 
+Create & switch:
+git checkout -b new-branch
 
--> to check commit logs - 
-   
-   git log 
+🔄 SYNC LOCAL WITH REMOTE
+git pull
 
--> to retrive to the prev commit of the prev version use 
-   1st check the commit logs and find the commit ID -> 
-
-   commit 4279ab98bc47027e42c054722af180c8909f3d93
-   Author: Aryan27-max <gupta.raj.aryan.2005@gmail.com>
-   Date:   Wed Jan 7 16:47:16 2026 +0530
-
-   intro to licenses
-
-then copy the commit ID and then use -> 
-
-git checkout <commit ID>
-
--> to switch branches use  
-
-git checout <branch name - Aryan-Fix, main, etc>
-
--> incase of a headless state force checkout using - 
-
-git checout -f <branch name>
-
--> Creation of new branch and switching to it 
-
-git branch <branch-name>    |
-                            |----> git checkout -b <branch name>
-git checkout <branch-name>  |
-
--> to sync local files to the remote repo use - 
-
-git pull 
-
-SAVIOUR CMDS - 
-
--> Commit ressting 
-(eg - yo did 10 mind and u wanna delete commits 4-10 but still keep the code) 
-
-2 tyoes of git reset - 
-
-1. ->  Soft reset 
-the soft reset simply move the specified commits in history but keeps changes 
-staged in a working directory so after review and use the [ git add . ] cmd
-the changes are tracked and ready to push 
-
+🚑 RESET COMMANDS (LIFESAVERS)
+🟢 Soft Reset (keep staged changes)
 git reset --soft <commit-hash>
 
-2. ->  Mixed reset
-moves the specified commit in history, unstaged the chnagesand keeps the 
-in the working directory, thus, all changes made after the specified commit 
-will be in the working directory but they won't be staged u can manually stage
-using the [ git add . ] cmd 
-
+🟡 Mixed Reset (keep files but unstaged)
 git reset <commit-hash>
 
-3. ->  hard reset
-all the changes discarded will be completely removed and you won't be seeing it 
-
+🔴 Hard Reset (delete everything after commit)
 git reset --hard <commit-hash>
 
+📦 GIT STASH (TEMP SAVE WORK)
+git stash
+git stash list
+git stash apply stash@{0}
+
+🚀 ADVANCED BRANCH CONTROL
+🔥 Force push branch → main
+git checkout your-branch
+git push origin your-branch:main --force-with-lease
+
+
+✔ safely replaces main with your branch
+
+🧹 Make branch same as main
+git checkout your-branch
+git fetch origin
+git reset --hard origin/main
+
+💻 Make local system same as GitHub
+git fetch origin
+git checkout main
+git reset --hard origin/main
+git clean -fd
+
+🔁 REBASE (MOST IMPORTANT WORKFLOW)
+👉 What it does:
+
+Moves your commits on top of latest main (removes “behind”)
+
+✅ Rebase cleanly:
+git checkout your-branch
+git fetch origin
+git rebase origin/main
+
+If conflict:
+git add .
+git rebase --continue
+
+⬆ Push after rebase:
+git push --force-with-lease
+
+🏆 PERFECT DAILY DEV FLOW (USE THIS ALWAYS)
+git checkout your-branch
+git fetch origin
+git rebase origin/main
+git push --force-with-lease
+
+
+✔ no behind commits
+✔ clean history
+✔ no merge mess
+
+📌 GOLDEN RULES
+
+✅ Rebase feature branches
+✅ Use --force-with-lease not --force
+❌ Don’t force push shared production branches
+✅ Reset only when you’re sure
