@@ -66,3 +66,23 @@ stack and push git cmds -
 then copy the commit ID and then use -> 
 
 git checkout <commit ID>
+
+-> to switch branches use  
+
+git checout <branch name - Aryan-Fix, main, etc>
+
+-> incase of a headless state force checkout using - 
+
+git checout -f <branch name>
+
+-> Creation of new branch and switching to it 
+
+git branch <branch-name>    |
+                            |----> git checkout -b <branch name>
+git checkout <branch-name>  |
+
+-> to sync local files to the remote repo use - 
+
+git pull 
+
+
