@@ -85,4 +85,30 @@ git checkout <branch-name>  |
 
 git pull 
 
+SAVIOUR CMDS - 
+
+-> Commit ressting 
+(eg - yo did 10 mind and u wanna delete commits 4-10 but still keep the code) 
+
+2 tyoes of git reset - 
+
+1. ->  Soft reset 
+the soft reset simply move the specified commits in history but keeps changes 
+staged in a working directory so after review and use the [ git add . ] cmd
+the changes are tracked and ready to push 
+
+git reset --soft <commit-hash>
+
+2. ->  Mixed reset
+moves the specified commit in history, unstaged the chnagesand keeps the 
+in the working directory, thus, all changes made after the specified commit 
+will be in the working directory but they won't be staged u can manually stage
+using the [ git add . ] cmd 
+
+git reset <commit-hash>
+
+3. ->  hard reset
+all the changes discarded will be completely removed and you won't be seeing it 
+
+git reset --hard <commit-hash>
 
