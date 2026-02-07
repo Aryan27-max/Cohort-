@@ -29,64 +29,75 @@ app.get("/", function(req,res){
     numberOfKidneys,
     numberOfHealthyKidneys,
     numberOfUnhealthyKidneys,
-  })
-})
+  });
+});
 
-
+//ADD new Kidneys
 app.post("/", function(req,res){
   const isHealthy = req.body.isHealthy;
+  
   users[0].kidneys.push({
     healthy:isHealthy
-  })
+  });
+
   res.json({
     msg:"Done!"
-  })
-})
+  });
+});
 
+//MAKE all kidneys healthy 
 app.put("/",function(req,res){
   for(let i=0 ; i<users[0].kidneys.length; i++){
     users[0].kidneys[i].healthy=true;
   }
-  res.json({});
-})
+  res.json({msg: "All kidneys are healed"});
+});
+
 
 //removing all the unhealthy kidneys 
 app.delete("/", function(req,res){
 
   //only ifone unhealthy kidnet is there do this, elese return 411(wrong input)
 
-  if(isThereAtleastOneUnhealthyKidney){
+  if(isThereAtleastOneUnhealthyKidney()){
     
   const newKidneys = [];
+
   for(let i=0 ; i<users[0].kidneys.length; i++){
     if (users[0].kidneys[i].healthy){  
     newKidneys.push({
         healthy:true
-      })
+      });
     }
   }
+  
   users[0].kidneys = newKidneys;
-  res.json({msg: "done"}) 
-  } 
+  
+  res.json({msg: "Unhealthy kidney removed"}) 
+  
+} 
   else
-  {
+  
+{
     res.status(411).json({
       msg: "you have no bad kidneys" 
     });
   }
-})
+});
 
 function isThereAtleastOneUnhealthyKidney(){
-  let atleastOneHelathyKidney = false;
-  for(let i=0 ; i<users[0].kidneys.length; i++){
-    if (users[0].kidneys[i].healthy){
-    atleastOneHelathyKidney = true;
+  
+  for(let i = 0 ; i < users[0].kidneys.length; i++){
+    
+    if (!users[0].kidneys[i].healthy){
+      return true;
     }
   }
+  return false;
 }
 app.listen(3000, () => {
   console.log("Server running at port 3000")
-})
+});
 
 
 //server checks (to check the edge cases if the user sends some gibrish)
