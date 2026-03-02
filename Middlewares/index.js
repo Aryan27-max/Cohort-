@@ -1,1 +1,1 @@
-console.log("Welcome to middlewares & Cors");
+console.log("Welcome to middlewares & Cors"); 
