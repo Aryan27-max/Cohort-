@@ -25,3 +25,7 @@ Middleware functions can perform the following tasks:
 • Call the next middleware function in the stack.
 
 https://expressjs.com/en/guide/using-middleware.html
+
+DRY principle of coding - 
+avoid dupliaction of code or logic. every peice of knowlegde should have a 
+single, and clear representation in your system.
