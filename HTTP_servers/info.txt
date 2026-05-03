@@ -93,3 +93,32 @@ express => Node.js
 Spring Boot => Java
 actix-Web => Rust 
 Gurella => go 
+
+REQQUEST RESPONSE MODELS - 
+A request–response model is a basic communication pattern used in systems like web apps and APIs.
+
+In short:
+
+A client sends a request (asking for something).
+A server processes it.
+The server sends back a response (the result).
+
+Example:
+When you open a website:
+
+Your browser (client) sends a request to the server.
+The server returns the webpage (response).
+
+Key idea:
+👉 One request → one response (simple, direct interaction)
+
+This model is commonly used in protocols like HTTP.
+
+
+
+what are ports - 
+In networking, p
+rts rae logical endpoints used by protocols to identify specific 
+processes running on a computer server. they help direct network 
+traffic to the correct application or service on a system
+
