@@ -41,3 +41,22 @@ Example:
 Structure
 Uses opening and closing tags
 Similar to HTML
+
+Headers are metadata sent along with a request or response that tell the server/client 
+how to handle the actual data.
+
+Example - 
+
+header - 
+{
+   adata type : JSON
+}
+
+Body - 
+{
+    id : "123"
+    data : "Hello World !!"
+} 
+
+
+
