@@ -1,0 +1,43 @@
+JSON (JavaScript Object Notation)
+
+JSON stores data using key : value pairs.
+
+Example:
+
+{
+  "name": "Aryan",
+  "age": 21,
+  "isStudent": true
+}
+Structure
+{} → object
+[] → array/list
+"key": value
+Why JSON is popular
+Lightweight
+Easy to read
+Easy for JavaScript, Python, Go, etc.
+Used heavily in APIs
+
+Example API response:
+
+{
+  "temperature": 32,
+  "city": "Bhopal"
+}
+
+
+XML (eXtensible Markup Language)
+
+XML stores data using tags.
+
+Example:
+
+<person>
+    <name>Aryan</name>
+    <age>21</age>
+    <isStudent>true</isStudent>
+</person>
+Structure
+Uses opening and closing tags
+Similar to HTML
