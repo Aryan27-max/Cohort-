@@ -1,0 +1,24 @@
+cors - Cross-Origin Resource Sharing
+Cross-Origin Resource Sharing (CORS) is a security feature implemented by web browsers that controls how resources on a web server can be requested from another domain. It's a crucial mechanism for managing cross-origin requests and ensuring secure interactions between different origins on the web.
+
+Quick Express Usage
+First install CORS:
+npm install cors
+Then:
+const express = require("express");const cors = require("cors");const app = express();app.use(cors());
+This allows requests from all origins.
+
+Allow only one frontend
+app.use(    cors({        origin: "http://localhost:5173"    }));
+If your React app is running on localhost:5173, it can now call your backend.
+
+Allow multiple origins
+app.use(    cors({        origin: [            "http://localhost:5173",            "https://mywebsite.com"        ]    }));
+One-line understanding
+CORS tells the browser which websites (origins) are allowed to access your backend.
+Example:
+Frontend: http://localhost:5173Backend : http://localhost:3000
+Without CORS → Browser blocks the request.
+With:
+app.use(cors({    origin: "http://localhost:5173"}));
+Browser allows the request. 🚀
