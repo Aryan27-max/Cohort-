@@ -1,3 +1,5 @@
+the EXPRESS frameowrk is an chain of middlewares
+
 so letsstart to uinderstand middleware with an example 
 
 -> the amusemnet part example
