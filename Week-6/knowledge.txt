@@ -1,0 +1,39 @@
+req.body and req.query are two different places where data can come from in an HTTP request.
+req.body
+Data sent inside the request body.
+Example:
+POST /signin
+Body:
+{    "username": "aryan",    "password": "123456"}
+Code:
+const username = req.body.username;const password = req.body.password;
+So:
+req.body
+contains:
+{    username: "aryan",    password: "123456"}
+
+req.query
+Data sent in the URL after the ?.
+Example:
+POST or GET
+http://localhost:3000/signin?username=aryan&password=123456
+Code:
+const username = req.query.username;const password = req.query.password;
+So:
+req.query
+contains:
+{    username: "aryan",    password: "123456"}
+
+Visual Comparison
+Using req.body:
+POST /signin{    "username": "aryan",    "password": "123456"}
+Using req.query:
+POST /signin?username=aryan&password=123456
+
+In Postman
+If you're typing:
+{    "username": "aryan",    "password": "123456"}
+under Body → raw → JSON, use:
+req.body.usernamereq.body.password
+If you're typing values under the Params tab, use:
+req.query.usernamereq.query.password
