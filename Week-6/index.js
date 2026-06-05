@@ -66,6 +66,29 @@ app.post("/signin", function (req,res){
     console.log(users)
 })
 
+//creating an authenticated endpoint
+app.get ("/me", function(req,res){
+    const token = req.headers.token
+    let FoundUsers = null;
+
+    for(let i = 0; i< users.length; i++){
+        if(users[i].token == token){
+            FoundUsers = users[i]
+        }
+    }
+
+    if (FoundUsers){
+        res.json({
+            username: FoundUsers.username,
+            password: FoundUsers.password
+        })
+    } else {
+        res.json({
+            message: "token invalid"
+        })
+    }
+})
+
 app.listen(3000, () => {
     console.log("server running at port 3000");
 });
