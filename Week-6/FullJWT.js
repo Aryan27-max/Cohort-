@@ -14,6 +14,11 @@ function logger(req, res, next) {
     next();
 }
 
+//localhost:3000
+app.get("/", function(req,res){
+        res.sendFile(__dirname + "/public/index.html");
+})
+
 // Signup Route
 app.post("/signup", logger, function (req, res) {
     const username = req.body.username;

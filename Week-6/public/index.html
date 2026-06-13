@@ -5,13 +5,32 @@
         </title>
     </head>
 
+    <!-- we are using the axios library over here  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+
+    <script>
+        async function signup(){
+            const username = document.getElementById("signup-username").value;
+            const password = document.getElementById("signup-password").value;
+        
+
+        const response = await axios.post("http://localhost:3000/signup", {
+            username: username,
+            password: password
+        })
+        alert("you ae signed in !!")
+    }
+    </script>
+
     <body>
         <div>
-            <input type ="text" name = "username" placeholder="username">
-            <input type ="text" name = "password" placeholder="password">
+            Signup
+            <input id="signup-username" type ="text" name = "username" placeholder="username">
+            <input id="signup-password" type ="text" name = "password" placeholder="password">
             <button onclick="signup()">Submit</button>
         </div>
         <div>
+            Signin
             <input type ="text" name = "username" placeholder="username">
             <input type ="text" name = "password" placeholder="password">
             <button onclick="signin()">Submit</button>
@@ -21,7 +40,7 @@
             <div id="information"></div>
         </div>
         <div>
-            <button onclick="logout()"></button>
+            <button onclick="logout()">Logout</button>
         </div>
     </body>
 </html>
