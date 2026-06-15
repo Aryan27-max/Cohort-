@@ -1,0 +1,81 @@
+Bro Code documentation 
+
+open mongoSH 
+
+1. View all databases
+show dbs
+2. Create/Switch to database student
+use student
+
+MongoDB creates the database only after you insert data.
+
+3. Insert Aryan's document
+db.students.insertOne({
+    name: "Aryan",
+    age: 21,
+    gpta: 9.9
+})
+4. View all collections
+show collections
+
+Expected:
+
+students
+5. View inserted data
+db.students.find()
+
+Pretty format:
+
+db.students.find().pretty()
+6. Insert several values at once
+db.students.insertMany([
+    {
+        name: "Rahul",
+        age: 20,
+        gpta: 8.7
+    },
+    {
+        name: "Priya",
+        age: 22,
+        gpta: 9.3
+    },
+    {
+        name: "Aman",
+        age: 21,
+        gpta: 8.9
+    }
+])
+7. View all students
+db.students.find().pretty()
+
+Output will look something like:
+
+{
+  name: 'Aryan',
+  age: 21,
+  gpta: 9.9
+}
+{
+  name: 'Rahul',
+  age: 20,
+  gpta: 8.7
+}
+{
+  name: 'Priya',
+  age: 22,
+  gpta: 9.3
+}
+{
+  name: 'Aman',
+  age: 21,
+  gpta: 8.9
+}
+8. Count documents
+db.students.countDocuments()
+9. Drop the entire database
+db.dropDatabase()
+
+Expected:
+
+{ ok: 1, dropped: 'student' }
+
