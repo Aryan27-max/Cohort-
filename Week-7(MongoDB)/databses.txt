@@ -1,0 +1,167 @@
+SQL vs NoSQL Databases
+What is a Database?
+A database is an organized collection of data that allows efficient storage, retrieval, and management of information.
+Examples:
+🡢 Student records
+🡢 Banking information
+🡢 E-commerce products
+🡢 Social media user data
+
+What is a Schema?
+A schema is the blueprint or structure of a database that defines:
+🡢 What fields (columns) exist
+🡢 What type of data can be stored
+🡢 Rules and constraints on the data
+
+
+Example SQL Schema
+CREATE TABLE Students (    ID INT,    Name VARCHAR(50),    Age INT);
+The schema specifies:
+
+
+ID → Integer
+
+
+Name → Text
+
+
+Age → Integer
+
+
+Every record must follow this structure.
+
+SQL Databases
+SQL (Structured Query Language) databases store data in the form of tables consisting of rows and columns.
+Example
+IDNameAge1Aryan212Rahul22
+Popular SQL Databases
+
+
+MySQL
+
+
+PostgreSQL
+
+
+Oracle Database
+
+
+Microsoft SQL Server
+
+
+Advantages of SQL
+
+
+Fixed and organized schema
+
+
+Strong data consistency
+
+
+Supports complex queries and joins
+
+
+Reliable for critical applications
+
+
+Applications
+
+
+Banking systems
+
+
+Payroll systems
+
+
+Hospital management systems
+
+
+Inventory management systems
+
+
+
+NoSQL Databases
+NoSQL (Not Only SQL) databases store data in flexible formats such as documents, key-value pairs, graphs, or wide-column structures.
+Example MongoDB Document
+{  "name": "Aryan",  "age": 21,  "skills": ["C++", "MongoDB"],  "address": {    "city": "Raipur"  }}
+Popular NoSQL Databases
+
+
+MongoDB
+
+
+Cassandra
+
+
+Redis
+
+
+CouchDB
+
+
+
+Why NoSQL is Preferred for Certain Tasks
+Modern applications often have:
+
+
+Large amounts of data
+
+
+Frequently changing requirements
+
+
+Millions of users
+
+
+Different data formats
+
+
+In such situations, NoSQL databases provide greater flexibility and scalability.
+Example
+Document 1:
+{  "name": "Aryan",  "age": 21}
+Document 2:
+{  "name": "Rahul",  "age": 22,  "github": "rahul123",  "skills": ["Python"]}
+Both documents can exist in the same collection without changing any predefined structure.
+
+Why NoSQL is Better than SQL (Based on the Given Image)
+The image highlights two major advantages of NoSQL databases:
+1. Schema Flexibility
+SQL databases require a fixed schema. Adding new fields often requires modifying the table structure.
+Example:
+ALTER TABLE StudentsADD Github VARCHAR(100);
+NoSQL databases allow different documents to have different fields without changing any schema.
+Benefit
+
+
+Faster development
+
+
+Easier adaptation to changing requirements
+
+
+Suitable for dynamic applications
+
+
+
+2. Scalability
+SQL databases generally scale vertically by upgrading a single server with more CPU, RAM, or storage.
+NoSQL databases are designed to scale horizontally by adding more servers and distributing data among them.
+Benefit
+
+
+Handles massive amounts of data
+
+
+Supports millions of users
+
+
+Suitable for cloud and distributed systems
+
+
+Conclusion
+SQL databases are best for applications requiring structured data, strong consistency, 
+and complex relationships. NoSQL databases are preferred for modern large-scale 
+applications because they provide schema flexibility and horizontal scalability, 
+making them ideal for social media platforms, real-time applications, cloud services, 
+and big data systems.
