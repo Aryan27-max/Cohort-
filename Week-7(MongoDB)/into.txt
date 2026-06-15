@@ -79,3 +79,32 @@ Expected:
 
 { ok: 1, dropped: 'student' }
 
+DATA TYPES IN MONGO DB 
+
+Field	               Data Type	                    One-liner
+name:                   "Larry"	String	            Stores text data.
+age: 32	                Integer (Number)	        Stores whole numbers.
+gpa: 2.8	            Double (Decimal Number)	    Stores numbers with decimal points.
+fullTime: false	            Boolean	                Stores true or false.
+registerDate: new Date()	Date	                Stores date and time values.
+graduationDate: null	    Null	                Represents an empty or unknown value.
+courses: [...]	            Array	                Stores multiple values in a list.
+address: {...}	       Embedded Document/Object	    Stores a document inside another document.
+street: "123 Fake St."	    String	                Text value inside embedded document.
+city: "Bikini Bottom"	    String	                Text value inside embedded document.
+zip: 12345	            Integer (Number)	        Numeric postal code.
+
+example cmd -
+
+db.students.insertOne({
+    name: "Aryan",              // String
+    age: 21,                    // Number
+    gpa: 9.9,                   // Number
+    fullTime: true,             // Boolean
+    joinDate: new Date(),       // Date
+    graduationDate: null,       // Null
+    skills: ["C++", "MongoDB"], // Array
+    address: {                  // Object
+        city: "Raipur"
+    }
+})
