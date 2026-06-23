@@ -1,0 +1,7 @@
+WHAT IS SALTING AND SALT IN AUTHENTICATION - 
+
+A popular approach to hashing passwords involves using a hashing algorithm 
+that incorporates a salt—a random value added to the password before hashing. 
+This prevents attackers from using precomputed tables (rainbow tables) to 
+crack passwords.
+
