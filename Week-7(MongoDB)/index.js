@@ -18,26 +18,29 @@ const app = express();
 
 app.use(express.json());
 
-app.post("/signup", async function (req, res) {
-  const email = req.body.email;
-  const password = req.body.password;
-  const name = req.body.name;
+app.post("/signup", async(req,res) => {
+    const{ mail,password, name } = req.body;
 
-  // Hash password before storing
-  const hashedPassword = await bcrypt.hash(password, 5);
+    const existingUser = await UserModel.findOne({ email });
 
-  console.log(hashedPassword);
+    if(existingUser){
+        return res.status(409).json({
+            message: "User already exists"
+        });
+    }
 
-  await UserModel.create({
-    email: email,
-    password: hashedPassword,
-    name: name,
-  });
+    const hashedPassword = await bcrypt.hash(password, 5);
 
-  res.json({
-    message: "You are signed up",
-  });
-});
+    await UserModel.create({
+        email,
+        password: hashedPassword,
+        name
+    })
+
+    res.json({
+        message: "you are signed in"
+    })
+})
 
 app.post("/signin", async function (req, res) {
   const email = req.body.email;
@@ -54,7 +57,7 @@ app.post("/signin", async function (req, res) {
     return
   }
 
-  const passwordMatch = bcrypt.compare(password, response.password);
+  const passwordMatch = await bcrypt.compare(password, response.password);
 
   if (passwordMatch) {
     const token = jwt.sign(
