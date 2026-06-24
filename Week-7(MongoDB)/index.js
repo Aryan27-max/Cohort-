@@ -2,9 +2,9 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
-
 const { UserModel, TodoModel } = require("./db");
 const { auth, JWT_SECRET } = require("./auth");
+const { z } = require ("zod");
 
 // Optional DNS fix for MongoDB Atlas
 const dns = require("dns");
@@ -19,7 +19,24 @@ const app = express();
 app.use(express.json());
 
 app.post("/signup", async(req,res) => {
-    const{ mail,password, name } = req.body;
+
+    const requiredBody  = z.object({
+        email: z.string().min(3).max(100).email(),
+        name: z.string().min(3).max(100),
+        password: z.string().min(3).max(30)
+    })
+
+    const parsedDataWithSucess = requiredBody.safeParse(req.body);
+
+    if(!parsedDataWithSucess.success){
+        res.json({
+            message: "Incorrect format"
+        })
+        return
+    }
+
+
+    const{ email,password, name } = req.body;
 
     const existingUser = await UserModel.findOne({ email });
 
