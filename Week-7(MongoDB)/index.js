@@ -8,7 +8,6 @@ const { z } = require ("zod");
 
 // Optional DNS fix for MongoDB Atlas
 const dns = require("dns");
-const { error } = require("console");
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 mongoose.connect(
@@ -58,7 +57,7 @@ app.post("/signup", async(req,res) => {
     })
 
     res.json({
-        message: "you are signed in"
+        message: "you are signed up"
     })
     }
     catch(err){
@@ -69,69 +68,98 @@ app.post("/signup", async(req,res) => {
 })
 
 app.post("/signin", async function (req, res) {
-  const email = req.body.email;
-  const password = req.body.password;
+    try {
+        const requiredBody = z.object({
+            email: z.string().email(),
+            password: z.string().min(4).max(30)
+        });
 
-  const response = await UserModel.findOne({
-    email: email,
-  });
+        const parsedData = requiredBody.safeParse(req.body);
 
-  if(!response){
-    res.status(403).json({
-        message:"User does not exist"
-    })
-    return
-  }
+        if (!parsedData.success) {
+            return res.status(400).json({
+                message: "Incorrect format"
+            });
+        }
 
-  const passwordMatch = await bcrypt.compare(password, response.password);
+        const { email, password } = req.body;
 
-  if (passwordMatch) {
-    const token = jwt.sign(
-      {
-        id: response._id.toString(),
-      },
-      JWT_SECRET
-    );
+        const response = await UserModel.findOne({
+            email
+        });
 
-    res.json({
-      token,
-    });
-  } else {
-    res.status(403).json({
-      message: "Incorrect creds",
-    });
-  }
+        if (!response) {
+            return res.status(403).json({
+                message: "User does not exist"
+            });
+        }
+
+        const passwordMatch = await bcrypt.compare(
+            password,
+            response.password
+        );
+
+        if (passwordMatch) {
+            const token = jwt.sign(
+                {
+                    id: response._id.toString()
+                },
+                JWT_SECRET
+            );
+
+            return res.json({
+                token
+            });
+        }
+
+        return res.status(403).json({
+            message: "Incorrect creds"
+        });
+
+    } catch (err) {
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
 });
 
 app.post("/todo", auth, async function (req, res) {
-  const userId = req.userId;
-  const title = req.body.title;
-  const done = req.body.done;
+  try{
+    const userId = req.userId;
+    const title = req.body.title;
 
-  await TodoModel.create({
-    userId,
-    title,
-    done,
+    await TodoModel.create({
+        userId,
+        title,
+        isDone: false
   });
 
   res.json({
     message: "Todo created",
   });
+  } catch(err){
+        res.status(500).json({
+        message: "Internal server error"
+    })
+  }
 });
 
 app.get("/todos", auth, async function (req, res) {
-  const userId = req.userId;
+    try{
+        const userId = req.userId;
 
-  const todos = await TodoModel.find({
-    userId,
-    title,
-    isDone,
-    dueDate: req.body.dueDate   
-  });
+        const todos = await TodoModel.find({
+            userId  
+        }).populate("userId");
 
-  res.json({
-    todos,
-  });
+        res.json({
+            todos,
+        });
+    } catch(err){
+        res.status(500).json({
+            message: "Internal server error"
+        });
+    }
 });
 
 app.listen(3000, () => {
