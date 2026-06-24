@@ -5,14 +5,13 @@ const mongoose = require("mongoose");
 const { UserModel, TodoModel } = require("./db");
 const { auth, JWT_SECRET } = require("./auth");
 const { z } = require ("zod");
+require("dotenv").config();
 
 // Optional DNS fix for MongoDB Atlas
 const dns = require("dns");
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
-mongoose.connect(
-  "mongodb+srv://Aryan2222:wXtwdvwOLnwOzyjq@cluster0.7n3ce9a.mongodb.net/aryan-todo"
-);
+mongoose.connect(process.env.MONGO_URL);
 
 const app = express();
 
@@ -164,4 +163,5 @@ app.get("/todos", auth, async function (req, res) {
 
 app.listen(3000, () => {
   console.log("Server running at port 3000");
+  console.log("MongoDB connected Sucessfuly");
 });
