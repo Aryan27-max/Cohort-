@@ -13,6 +13,11 @@ const Todo = new Schema({
   title: String,
   isDone: Boolean,
   userId: ObjectId,
+  createdAt:{
+    type: Date,
+    default: Date.now
+  },
+  dueDate: Date 
 });
 
 const UserModel = mongoose.model("users", User);

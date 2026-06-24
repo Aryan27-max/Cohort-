@@ -8,6 +8,7 @@ const { z } = require ("zod");
 
 // Optional DNS fix for MongoDB Atlas
 const dns = require("dns");
+const { error } = require("console");
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 mongoose.connect(
@@ -20,7 +21,8 @@ app.use(express.json());
 
 app.post("/signup", async(req,res) => {
 
-    const requiredBody  = z.object({
+    try{
+            const requiredBody  = z.object({
         email: z.string().min(3).max(100).email(),
         name: z.string().min(3).max(100),
         password: z.string().min(3).max(30)
@@ -30,7 +32,8 @@ app.post("/signup", async(req,res) => {
 
     if(!parsedDataWithSucess.success){
         res.json({
-            message: "Incorrect format"
+            message: "Incorrect format",
+            error: parsedDataWithSucess.error
         })
         return
     }
@@ -57,6 +60,12 @@ app.post("/signup", async(req,res) => {
     res.json({
         message: "you are signed in"
     })
+    }
+    catch(err){
+        res.status(500).json({
+            message: "Internal Server error"
+        });
+    }
 })
 
 app.post("/signin", async function (req, res) {
@@ -115,6 +124,9 @@ app.get("/todos", auth, async function (req, res) {
 
   const todos = await TodoModel.find({
     userId,
+    title,
+    isDone,
+    dueDate: req.body.dueDate   
   });
 
   res.json({
