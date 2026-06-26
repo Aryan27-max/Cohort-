@@ -23,7 +23,7 @@ const Todo = new Schema({
     type: Date,
     default: Date.now
   },
-  dueDate: Date 
+  dueDate: Date   
 });
 
 const UserModel = mongoose.model("users", User);
