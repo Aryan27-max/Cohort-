@@ -1,6 +1,7 @@
 const mongoose = require ("mongoose");
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
+mongoose.connect(process.env.MONGO_URL);
 
 const userSchema = new Schema({
         email: {type: String, unique: true, required: true},
@@ -22,7 +23,6 @@ const courseSchema = new Schema({
         price: Number,
         imageURL: String,
         creatorID: String
-
 });
 
  
