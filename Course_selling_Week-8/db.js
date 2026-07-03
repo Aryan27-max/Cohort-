@@ -3,6 +3,8 @@ const dns = require("node:dns");
 const mongoose = require("mongoose");
 
 // Force public DNS resolvers so Atlas SRV lookups do not depend on the local DNS server.
+// IMPORTANT !! - 
+//line 8 and the dns import at line 2 are completely optional
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 const mongoUri = process.env.MONGO_URI ;
