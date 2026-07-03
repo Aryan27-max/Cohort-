@@ -20,7 +20,7 @@ app.use(express.json());
 app.post("/signup", async(req,res) => {
 
     try{
-            const requiredBody  = z.object({
+        const requiredBody  = z.object({
         email: z.string().min(3).max(100).email(),
         name: z.string().min(3).max(100),
         password: z.string().min(3).max(30)
