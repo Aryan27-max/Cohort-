@@ -164,9 +164,17 @@ adminRouter.put("/",adminAuth ,async function(req,res){
     })
 })
 
-adminRouter.get("/bulk", function(req,res){
+adminRouter.get("/course/bulk",adminAuth , async function(req,res){
+
+    const adminId = req.userId;
+
+    const courses = await CourseModel.updateOne({
+        creatorID: adminId
+    });
+
     res.json({
-        message: "courses endpoint"
+        message: "Course Updated",
+        courses 
     })
 })
 
