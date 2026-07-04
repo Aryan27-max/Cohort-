@@ -2,7 +2,8 @@ const { Router } = require ("express");
 const adminRouter = Router();
 const { AdminModel, UserModel } = require ("../db");
 const { auth, JWT_SECRET } = require ("../middlewares/auth.js");
-const { z, email } = require ("zod");
+const { z } = require ("zod");
+const bcrypt = require ("bcrypt");
 
 adminRouter.post("/signup", async function(req,res){
     
@@ -26,7 +27,7 @@ adminRouter.post("/signup", async function(req,res){
 
         const{ email,password, FirstName, LastName } = parsedDataWithSucess.data;
 
-        const existingUser = await UserModel.findOne({ email })
+        const existingUser = await AdminModel.findOne({ email })
 
         if(existingUser){
             return res.status(409).json({
@@ -36,7 +37,7 @@ adminRouter.post("/signup", async function(req,res){
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        await UserModel.create({
+        await AdminModel.create({
             email: email,
             password: hashedPassword,
             FirstName: FirstName,
@@ -44,12 +45,13 @@ adminRouter.post("/signup", async function(req,res){
         })
 
         res.json({
-            message: "you are signed in"
+            message: "you are signed up"
         })
     }
     catch(err){
         res.status(500).json({
-            message: "internal server error"
+            message: "internal server error",
+            error: err.message
         });
     } 
     

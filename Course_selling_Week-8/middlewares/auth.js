@@ -17,7 +17,7 @@ function auth(req,res, next){
     }
 }
 
-modeule.exports = {
+module.exports = {
     auth,
     JWT_SECRET
 }

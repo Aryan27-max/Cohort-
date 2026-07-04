@@ -4,6 +4,7 @@ const { courseRouter } = require ("./routes/course");
 const { adminRouter } = require("./routes/admin");
 require("./db");
 const app = express();
+app.use(express.json());
 
 // Optional DNS fix for MongoDB Atlas
 // const dns = require("dns");
