@@ -2,7 +2,7 @@ const { Router } = require ("express");
 const { z } = require("zod");
 const { UserModel } = require("../db");
 const userRouter = Router ();
-const { auth, JWT_SECRET } = require ("../middlewares/auth.js");
+const { auth, JWT_USER_PASSWORD } = require ("../middlewares/auth.js");
 const bcrypt = require("bcrypt")
 require ("dotenv").config();
 const jwt = require("jsonwebtoken");
@@ -64,7 +64,7 @@ userRouter.post("/signin", async function(req,res){
     try{
         const requiredBody = z.object({
             email: z.string().email(),
-            password: z.string().min(3).maxLength(30)
+            password: z.string().min(3).max(30)
         });
 
         const parsedData = requiredBody.safeParse(req.body);
@@ -75,7 +75,7 @@ userRouter.post("/signin", async function(req,res){
             });
         }
 
-        const { email, password } = req.body;
+        const { email, password } = parsedData.data;
 
         const response = await UserModel.findOne({
             email

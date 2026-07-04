@@ -1,9 +1,10 @@
 const { Router } = require ("express");
 const adminRouter = Router();
 const { AdminModel, UserModel } = require ("../db");
-const { auth, JWT_SECRET } = require ("../middlewares/auth.js");
+const { auth, JWT_SECRET, JWT_ADMIN_PASSWORD } = require ("../middlewares/auth.js");
 const { z } = require ("zod");
 const bcrypt = require ("bcrypt");
+const jwt = require("jsonwebtoken");
 
 adminRouter.post("/signup", async function(req,res){
     
@@ -57,10 +58,58 @@ adminRouter.post("/signup", async function(req,res){
     
 })
 
-adminRouter.post("/signin", function(req,res){
-    res.json({
-        message: "Signin endpoint"
-    })
+adminRouter.post("/signin", async function(req,res){
+   try{
+    const requiredBody = z.object({
+        email: z.string().email(),
+        password: z.string().min(3).max(30)
+    });
+
+    const parsedData = requiredBody.safeParse(req.body);
+
+    if(!parsedData.success){
+        return res.status(400).json({
+            message: "Incorrect credentials"
+        });
+    }
+
+    const { email, password }  = parsedData.data;
+
+    const response = await AdminModel.findOne({ email });
+
+    if(!response){
+        return res.status(403).json({
+            message: "User does not exists"
+        });
+    }
+
+    const passwordMatch = await bcrypt.compare(
+        password,
+        response.password
+    );
+
+    if(passwordMatch){
+        const token = jwt.sign(
+            {
+                id: response._id.toString() 
+            },
+            JWT_ADMIN_PASSWORD
+        );
+
+        return res.json({
+            token
+        });
+    }
+
+    return res.status(403).json({
+        message: "Incorrect Creds"
+    });
+   }
+   catch(err){
+    return res.status(500).json({
+        message: "Internal Server error"
+    });
+   }
 })
 
 adminRouter.post("/", function(req,res){
