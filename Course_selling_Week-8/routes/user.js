@@ -2,7 +2,8 @@ const { Router } = require ("express");
 const { z } = require("zod");
 const { UserModel } = require("../db");
 const userRouter = Router ();
-const { auth, JWT_USER_PASSWORD } = require ("../middlewares/auth.js");
+const { JWT_USER_PASSWORD } = require("../middlewares/auth.js");
+const { userAuth } = require("../middlewares/userMiddleware.js");
 const bcrypt = require("bcrypt")
 require ("dotenv").config();
 const jwt = require("jsonwebtoken");
@@ -59,6 +60,60 @@ userRouter.post("/signup", async function(req,res){
             })
         }
 })   
+
+userRouter.post("/signin", async function(req,res){
+   try{
+    const requiredBody = z.object({
+        email: z.string().email(),
+        password: z.string().min(3).max(30)
+    });
+
+    const parsedData = requiredBody.safeParse(req.body);
+
+    if(!parsedData.success){
+        return res.status(400).json({
+            message: "Incorrect credentials"
+        });
+    }
+
+    const { email, password }  = parsedData.data;
+
+    const response = await UserModel.findOne({ email });
+
+    if(!response){
+        return res.status(403).json({
+            message: "User does not exists"
+        });
+    }
+
+    const passwordMatch = await bcrypt.compare(
+        password,
+        response.password
+    );
+
+    if(passwordMatch){
+        const token = jwt.sign(
+            {
+                id: response._id.toString() 
+            },
+            JWT_USER_PASSWORD
+        );
+
+        return res.json({
+            token
+        });
+    }
+
+    return res.status(403).json({
+        message: "Incorrect Creds"
+    });
+   }
+   catch(err){
+    return res.status(500).json({
+        message: "Internal Server error"
+    });
+   }
+})
 
 userRouter.get ("/purchases", function(req,res){
     res.json({

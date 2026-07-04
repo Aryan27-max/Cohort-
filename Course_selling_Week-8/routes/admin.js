@@ -1,7 +1,8 @@
 const { Router } = require ("express");
 const adminRouter = Router();
-const { AdminModel, UserModel } = require ("../db");
-const { auth, JWT_SECRET, JWT_ADMIN_PASSWORD } = require ("../middlewares/auth.js");
+const { AdminModel } = require ("../db");
+const { JWT_ADMIN_PASSWORD } = require("../middlewares/auth.js");
+const { adminAuth } = require("../middlewares/adminMiddleware.js");
 const { z } = require ("zod");
 const bcrypt = require ("bcrypt");
 const jwt = require("jsonwebtoken");
