@@ -1,6 +1,6 @@
 const { Router } = require ("express");
 const { z } = require("zod");
-const { UserModel } = require("../db");
+const { UserModel,PurchaseModel } = require("../db");
 const userRouter = Router ();
 const { JWT_USER_PASSWORD } = require("../middlewares/auth.js");
 const { userAuth } = require("../middlewares/userMiddleware.js");
