@@ -115,9 +115,14 @@ userRouter.post("/signin", async function(req,res){
    }
 })
 
-userRouter.get ("/purchases",userAuth ,function(req,res){
+userRouter.get ("/purchases",userAuth ,async function(req,res){
+
+    const purchases = await PurchaseModel.findOne({
+            userId
+        })
+
     res.json({
-        message: "purchases endpoint"
+        purchases
     })
 })
 

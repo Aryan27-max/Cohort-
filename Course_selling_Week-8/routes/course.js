@@ -1,6 +1,6 @@
 const { Router } = require ("express");
 const { userAuth } = require("../middlewares/userMiddleware");
-const { PurchaseModel } = require("../db");
+const { PurchaseModel, CourseModel } = require("../db");
 const courseRouter = Router();
 
 courseRouter.post("/purchase",userAuth, async function (req,res){
@@ -16,9 +16,12 @@ courseRouter.post("/purchase",userAuth, async function (req,res){
     })
 })
 
-courseRouter.get("/preview", function (req,res){
+courseRouter.get("/preview",async function (req,res){
+    
+    const courses = await CourseModel.find({});
+
     res.json({
-        messag: "preqview endpoint"
+        courses
     })
 })
 
