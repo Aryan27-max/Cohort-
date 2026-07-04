@@ -64,6 +64,6 @@ module.exports = {
   UserModel,
   AdminModel,
   CourseModel,
-        PurchaseModel
+  PurchaseModel
 };
 
