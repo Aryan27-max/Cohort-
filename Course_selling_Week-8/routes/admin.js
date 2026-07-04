@@ -137,9 +137,30 @@ adminRouter.post("/course",adminAuth , async function(req,res){
     })
 })
 
-adminRouter.put("/", function(req,res){
+adminRouter.put("/",adminAuth ,async function(req,res){
+    const adminId = req.userId;
+
+    const {
+        title, 
+        description,
+        imageURL,
+        price,
+        courseId
+    } = req.body;
+
+    const course = await CourseModel.updateOne({
+        _id:courseId,
+        creatorID: adminId
+    },{
+        title: title,
+        description: description,
+        imageURL: imageURL,
+        price: price
+    })
+
     res.json({
-        message: "courses endpoint"
+        message: "Course Updated",
+        courseId: course._id
     })
 })
 
