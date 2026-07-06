@@ -1,27 +1,43 @@
-HTTP - Hyper text transfer protocol 
-JSON - JavaScript Object Notation 
+# HTTP - Hyper text transfer protocol 
+# JSON - JavaScript Object Notation 
 
-4 main HTTP request methods are - 
+---
 
-1. GET - 
-   purpose - fetch data from server 
-   Does not chnage the data 
+# 4 main HTTP request methods are - 
 
-2. POST -
-   purpose - send data to server 
-   used to create new data 
+## 1. GET - 
 
-3. PUT -
-   purpose - update existing data (entire resource)
+purpose - fetch data from server 
 
-4. DELETE - 
-   purpose - remove data from servers 
+Does not chnage the data 
 
+---
 
+## 2. POST -
 
-HTTP status codes - 
+purpose - send data to server 
 
-🔵 1xx – Informational
+used to create new data 
+
+---
+
+## 3. PUT -
+
+purpose - update existing data (entire resource)
+
+---
+
+## 4. DELETE - 
+
+purpose - remove data from servers 
+
+---
+
+# HTTP status codes - 
+
+---
+
+# 🔵 1xx – Informational
 
 👉 Request received, still processing (rarely used)
 
@@ -29,7 +45,9 @@ HTTP status codes -
 
 📌 Mostly internal, you usually don’t use these directly.
 
-🟢 2xx – Success
+---
+
+# 🟢 2xx – Success
 
 👉 Request was successful
 
@@ -39,7 +57,9 @@ HTTP status codes -
 
 -> 204 No Content – Success but no response body
 
-🟡 3xx – Redirection
+---
+
+# 🟡 3xx – Redirection
 
 👉 Client must take another action
 
@@ -51,7 +71,9 @@ HTTP status codes -
 
 📌 Mostly used in browser navigation and caching.
 
-🔴 4xx – Client Errors
+---
+
+# 🔴 4xx – Client Errors
 
 👉 Problem from client side
 
@@ -65,7 +87,9 @@ HTTP status codes -
 
 -> 429 Too Many Requests – Rate limit exceeded
 
-🔥 5xx – Server Errors
+---
+
+# 🔥 5xx – Server Errors
 
 👉 Problem from server side
 
@@ -77,48 +101,71 @@ HTTP status codes -
 
 -> 504 Gateway Timeout – Server took too long
 
-🧠 Most Important Ones to Remember (Exam + Real Life)
-Code        Meaning
-200	        OK
-201	        Created
-400	        Bad Request
-401	        Unauthorized
-403	        Forbidden
-404	        Not Found
-500	        Server Error
+---
 
+# 🧠 Most Important Ones to Remember (Exam + Real Life)
 
-HTTP servers in difeerent languages 
+| Code | Meaning |
+|---|---|
+| 200 | OK |
+| 201 | Created |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 500 | Server Error |
+
+---
+
+# HTTP servers in difeerent languages 
+
 express => Node.js 
+
 Spring Boot => Java
+
 actix-Web => Rust 
+
 Gurella => go 
 
-REQQUEST RESPONSE MODELS - 
+---
+
+# REQQUEST RESPONSE MODELS - 
+
 A request–response model is a basic communication pattern used in systems like web apps and APIs.
 
 In short:
 
 A client sends a request (asking for something).
+
 A server processes it.
+
 The server sends back a response (the result).
 
-Example:
+---
+
+# Example:
+
 When you open a website:
 
 Your browser (client) sends a request to the server.
+
 The server returns the webpage (response).
 
-Key idea:
+---
+
+# Key idea:
+
 👉 One request → one response (simple, direct interaction)
 
 This model is commonly used in protocols like HTTP.
 
+---
 
+# what are ports - 
 
-what are ports - 
-In networking, p
-rts rae logical endpoints used by protocols to identify specific 
-processes running on a computer server. they help direct network 
-traffic to the correct application or service on a system
+In networking, ports rae logical endpoints used by protocols to identify specific 
+processes running on a computer server.
 
+they help direct network traffic to the correct application or service on a system
+
+---

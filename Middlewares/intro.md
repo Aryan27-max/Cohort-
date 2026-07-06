@@ -1,8 +1,11 @@
-the EXPRESS frameowrk is an chain of middlewares
+# the EXPRESS frameowrk is an chain of middlewares
 
 so letsstart to uinderstand middleware with an example 
 
--> the amusemnet part example
+# -> the amusemnet part example
+
+```
+text
                         |                |
 + + + + + + + + + + +   | ticket checker | ------> FUN RIDE 
                         |                |
@@ -12,8 +15,9 @@ so letsstart to uinderstand middleware with an example
                         as the ticker checker performs some checks
                         before the person gets onto the ride 
                         that's the work of an middleware 
+```
 
--> Using middleware
+# -> Using middleware
 
 Express is a routing and middleware web framework that has minimal functionality of its own: An Express application is essentially a series of middleware function calls.
 
@@ -22,12 +26,16 @@ Middleware functions are functions that have access to the request object (req),
 Middleware functions can perform the following tasks:
 
 • Execute any code.
+
 • Make changes to the request and the response objects.
+
 • End the request-response cycle.  
+
 • Call the next middleware function in the stack.
 
 https://expressjs.com/en/guide/using-middleware.html
 
-DRY principle of coding - 
+# DRY principle of coding - 
+
 avoid dupliaction of code or logic. every peice of knowlegde should have a 
 single, and clear representation in your system.
