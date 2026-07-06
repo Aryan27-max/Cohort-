@@ -1,4 +1,4 @@
-Course Selling App -
+# Course Selling App -
 
 - Initialize a new Node.js project
 - Add Express, jsonwebtoken to it as a dependency
