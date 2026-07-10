@@ -7,7 +7,7 @@ const { auth, JWT_SECRET } = require("./auth");
 const { z } = require ("zod");
 require("dotenv").config();
 
-// Optional DNS fix for MongoDB Atlas
+// This is completely Optional DNS fix for MongoDB Atlas
 const dns = require("dns");
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
