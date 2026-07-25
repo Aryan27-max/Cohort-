@@ -25,3 +25,66 @@ React simplifies frontend development by using a **component-based architecture*
 It updates only the required parts of the page using the **Virtual DOM**, making websites faster, easier to maintain, and scalable.
 
 > **In short:** React helps developers build interactive and dynamic user interfaces efficiently.
+
+--- 
+
+# React Basics
+
+## 📦 Component
+**Definition:**  
+A reusable building block of the user interface that contains UI and its logic.
+
+**Short:**  
+> Reusable UI block.
+
+---
+
+## 🧠 State
+**Definition:**  
+Data stored inside a component that can change over time.
+
+**Short:**  
+> Component's changing data (memory).
+
+---
+
+## 🔄 Re-rendering
+**Definition:**  
+React re-runs a component when its state or props change to update the UI.
+
+**Short:**  
+> React updates the UI after state/props change.
+
+---
+
+# Quick Revision
+
+- **Component** → Reusable UI block.
+- **State** → Component's changing data.
+- **Re-rendering** → React updates the UI after state/props change.
+
+---
+
+# Easy Flow
+
+```text
+Component
+    │
+    ▼
+Contains State
+    │
+    ▼
+State Changes
+    │
+    ▼
+React Re-renders
+    │
+    ▼
+Updated UI
+```
+
+
+
+
+
+
