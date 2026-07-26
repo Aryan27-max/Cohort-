@@ -83,6 +83,24 @@ React Re-renders
 Updated UI
 ```
 
+## base -line for React - 
+
+A state change triggers a re-render 
+A re-render represents the actual DOM bring manipulated when the state chnages
+you usually have to defin ethe componenet once and thne all you have to 
+do is to update the state of your app, and React takes care of the re-rendering of 
+your app
+
+
+.jsx  - Java Script XML (eXtesnsible Markup Language)
+
+.tsx  - Type Script XML (eXtesnsible Markup Language)
+
+What is XML - An XML (eXtensible Markup Language) is a way to store and transport data in a structured, human-readable format.
+
+
+
+
 
 
 
