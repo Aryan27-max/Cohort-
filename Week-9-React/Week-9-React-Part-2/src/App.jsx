@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function App() {
     return <div>
@@ -9,27 +9,26 @@ function App() {
     </div>
 }
 
+// mounting, umounting, re-rendering
 function Counter () {
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0); 
 
-  function increaseCount(){
-    setCount(count + 1);
-  }
+  // hooking into the life-cycle events of react
+  console.log("counter");
 
-  function DecreaseCount(){
-    setCount(count - 1);
-  }
-
-  function ResetCount(){
-    setCount(0);
-  }
+  //gaurd our setInterval with re-renders using the useEffect hook 
+  useEffect(function(){
+    setInterval(function(){
+      setCount(function(count){
+        return count + 1;
+      })
+    }, 1000)
+    console.log("Mounted");
+  }, []);
 
   return <div>
     <h1 id="text">{count}</h1>
-    <button onClick={increaseCount}>Increase count</button>
-    <button onClick={DecreaseCount}>Decrease count</button>
-    <button onClick={ResetCount}>Reset count</button>
   </div>
 }
 

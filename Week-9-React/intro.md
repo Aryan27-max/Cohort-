@@ -98,10 +98,7 @@ your app
 
 What is XML - An XML (eXtensible Markup Language) is a way to store and transport data in a structured, human-readable format.
 
-
-
-
-
+What are hooks in react and use state, use effect , mounting, re renderiing , un-mounting, life cycle events in React 
 
 
 
