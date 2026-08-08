@@ -1,35 +1,59 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 function App() {
-    return <div>
-      <b>
-        hi there 
-      </b>
-      <Counter></Counter>
-    </div>
-}
+  const [counterVisible, setCounterVisible] = useState(true);
 
-// mounting, umounting, re-rendering
-function Counter () {
+  useEffect(function () {
+    let clock = setInterval(function () {
+      setCounterVisible((visible) => !visible);
+    }, 5000);
 
-  const [count, setCount] = useState(0); 
-
-  // hooking into the life-cycle events of react
-  console.log("counter");
-
-  //gaurd our setInterval with re-renders using the useEffect hook 
-  useEffect(function(){
-    setInterval(function(){
-      setCount(function(count){
-        return count + 1;
-      })
-    }, 1000)
-    console.log("Mounted");
+    return function () {
+      clearInterval(clock);
+    };
   }, []);
 
-  return <div>
-    <h1 id="text">{count}</h1>
-  </div>
+  return (
+    <div>
+      <b>hi there</b>
+
+      {counterVisible && <Counter></Counter>}
+
+      hello
+    </div>
+  );
 }
 
-export default App
+// mounting, re-rendering, unmounting
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  // clearInterval
+  useEffect(function () {
+    console.log("on mount");
+
+    let clock = setInterval(function () {
+      console.log("from inside setInterval");
+      setCount((c) => c + 1);
+    }, 1000);
+
+    return function () {
+      console.log("on unmount");
+      clearInterval(clock);
+    };
+  }, []); // dependency array, cleanup, fetch inside useEffect
+
+  function increaseCount() {
+    setCount(count + 1);
+  }
+
+  console.log("counter");
+
+  return (
+    <div>
+      <h1 id="text">{count}</h1>
+    </div>
+  );
+}
+
+export default App;
