@@ -1,59 +1,32 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-function App() {
-  const [counterVisible, setCounterVisible] = useState(true);
+//use effects, depnedecy array, cleanups 
+export default function App(){
+  const [count, setCount] = useState(0);
 
-  useEffect(function () {
-    let clock = setInterval(function () {
-      setCounterVisible((visible) => !visible);
-    }, 5000);
+  function increase(){
+    setCount(c => c + 1);
+  }
 
-    return function () {
-      clearInterval(clock);
+  return ( 
+  <div>
+    <Counter count={count} />
+     <button onClick={increase}>Increase Count</button> 
+    </div>
+  );
+}
+
+// mounting rendering, un mounting 
+function Counter(props) {
+  useEffect(function(){
+    console.log("mount");
+
+    return function(){
+      console.log("unmounted");
     };
   }, []);
 
-  return (
-    <div>
-      <b>hi there</b>
-
-      {counterVisible && <Counter></Counter>}
-
-      hello
-    </div>
-  );
+  return <div>
+    Counter {props.count}
+  </div>
 }
-
-// mounting, re-rendering, unmounting
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  // clearInterval
-  useEffect(function () {
-    console.log("on mount");
-
-    let clock = setInterval(function () {
-      console.log("from inside setInterval");
-      setCount((c) => c + 1);
-    }, 1000);
-
-    return function () {
-      console.log("on unmount");
-      clearInterval(clock);
-    };
-  }, []); // dependency array, cleanup, fetch inside useEffect
-
-  function increaseCount() {
-    setCount(count + 1);
-  }
-
-  console.log("counter");
-
-  return (
-    <div>
-      <h1 id="text">{count}</h1>
-    </div>
-  );
-}
-
-export default App;
